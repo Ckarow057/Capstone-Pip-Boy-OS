@@ -2,6 +2,7 @@ import math
 from dataclasses import dataclass
 from enum import IntEnum
 
+import theme
 from data_loader import (
     get_body_parts_data,
     get_inventory_data,
@@ -10,6 +11,7 @@ from data_loader import (
     get_quests_data,
     get_radio_data,
     get_special_stats_data,
+    get_themes_data,
 )
 
 
@@ -56,9 +58,15 @@ class AppState:
     radio_data: dict
     animation: AnimationState
     current_screen: ScreenState = ScreenState.STAT
+    selected_quest: int = 0
+    selected_station: int = 0
+    color_theme: int = 0
+    themes: list = None
 
 
 def create_initial_state():
+    themes = get_themes_data()
+    theme.apply_theme(themes[0])
     return AppState(
         player_stats=get_player_stats_data(),
         inventory=get_inventory_data(),
@@ -67,5 +75,6 @@ def create_initial_state():
         quests=get_quests_data(),
         map_data=get_map_data(),
         radio_data=get_radio_data(),
-        animation=AnimationState()
+        animation=AnimationState(),
+        themes=themes,
     )

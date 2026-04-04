@@ -1,6 +1,7 @@
 import sys
 
 import pygame
+import theme
 
 from graphics import redraw
 from state import ScreenState
@@ -23,6 +24,22 @@ def _cycle_data_group(app_state):
         app_state.current_screen = _DATA_GROUP[(idx + 1) % len(_DATA_GROUP)]
 
 
+def _scroll_selection(app_state, direction: int):
+    """Move the per-screen cursor up/down."""
+    if app_state.current_screen == ScreenState.DATA:
+        count = len(app_state.quests)
+        app_state.selected_quest = (app_state.selected_quest + direction) % count
+    elif app_state.current_screen == ScreenState.RADIO:
+        count = len(app_state.radio_data["stations"])
+        app_state.selected_station = (app_state.selected_station + direction) % count
+
+
+def _cycle_theme(app_state):
+    """Cycle to the next colour theme."""
+    app_state.color_theme = (app_state.color_theme + 1) % len(app_state.themes)
+    theme.apply_theme(app_state.themes[app_state.color_theme])
+
+
 def process_input(app_state):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -30,6 +47,10 @@ def process_input(app_state):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return False
+            elif event.key == pygame.K_UP:
+                _scroll_selection(app_state, -1)
+            elif event.key == pygame.K_DOWN:
+                _scroll_selection(app_state, +1)
             elif event.key == pygame.K_RIGHT:
                 _cycle_screen(app_state, +1)
             elif event.key == pygame.K_LEFT:
@@ -44,6 +65,8 @@ def process_input(app_state):
                 app_state.current_screen = ScreenState.MAP
             elif event.unicode == '5':
                 app_state.current_screen = ScreenState.RADIO
+            elif event.key == pygame.K_x:
+                _cycle_theme(app_state)
     return True
 
 

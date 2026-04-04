@@ -10,7 +10,7 @@
         "xp": 10,
         "next_level": 200,
         "caps": 542,
-        "condition": 85,
+        "condition": 100,
         "effects": 0
     },
     "special": {
@@ -18,17 +18,17 @@
         "P": 6,
         "E": 5,
         "C": 4,
-        "I": 8,
+        "I": 1,
         "A": 6,
-        "L": 5
+        "L": 10
     },
     "body_parts": {
         "head": 100,
-        "torso": 85,
-        "left_arm": 90,
+        "torso": 100,
+        "left_arm": 100,
         "right_arm": 100,
-        "left_leg": 75,
-        "right_leg": 80
+        "left_leg": 100,
+        "right_leg": 100
     },
     "inventory": [
         {
@@ -124,84 +124,112 @@
     ],
     "quests": [
         {
-            "name": "ESCAPE FROM VAULT 101",
-            "status": "Completed",
-            "description": "You have escaped the Vault.",
-            "objectives": [
-                {
-                    "text": "Escape the Vault",
-                    "done": true
-                },
-                {
-                    "text": "Reach Megaton",
-                    "done": true
-                }
-            ]
-        },
-        {
-            "name": "FOLLOWING IN HIS FOOTSTEPS",
+            "name": "They Went That-A-Way",
             "status": "Active",
-            "description": "Find Father's trail leading from Vault 101.",
+            "description": "Track down Benny, the man who shot you in the head and left you for dead near Goodsprings. Follow his trail through the Mojave.",
             "objectives": [
                 {
-                    "text": "Ask about James in Megaton",
+                    "text": "Ask around Primm about the man who shot you",
                     "done": true
                 },
                 {
-                    "text": "Travel to Rivet City",
+                    "text": "Find out where Benny went from Nipton",
+                    "done": true
+                },
+                {
+                    "text": "Ask around Novac about the Chairmen",
+                    "done": true
+                },
+                {
+                    "text": "Find Benny in Boulder City",
                     "done": false
                 },
                 {
-                    "text": "Speak with Dr. Li",
+                    "text": "Follow Benny to The Tops casino in New Vegas",
                     "done": false
                 }
             ]
         },
         {
-            "name": "THE WASTELAND SURVIVAL GUIDE",
+            "name": "Ring-a-Ding-Ding!",
             "status": "Active",
-            "description": "Help Moira Brown write her survival guide.",
+            "description": "Benny has been tracked to The Tops casino on the New Vegas Strip. Confront him and recover the platinum chip he stole.",
             "objectives": [
                 {
-                    "text": "Gather food supplies",
+                    "text": "Gain access to the New Vegas Strip",
                     "done": true
                 },
                 {
-                    "text": "Test water purifier",
+                    "text": "Enter The Tops casino",
                     "done": false
                 },
                 {
-                    "text": "Explore Germantown Police HQ",
+                    "text": "Confront Benny",
+                    "done": false
+                },
+                {
+                    "text": "Recover the platinum chip",
                     "done": false
                 }
             ]
         },
         {
-            "name": "POWER OF THE ATOM",
-            "status": "Failed",
-            "description": "Decide the fate of the Megaton bomb.",
-            "objectives": [
-                {
-                    "text": "Speak with Sheriff Lucas Simms",
-                    "done": true
-                },
-                {
-                    "text": "Disarm or detonate the bomb",
-                    "done": false
-                }
-            ]
-        },
-        {
-            "name": "THOSE!",
+            "name": "Come Fly With Me",
             "status": "Active",
-            "description": "Help the residents of Grayditch with their fire ant problem.",
+            "description": "The residents of Novac need help with ghouls at the REPCONN Test Site. Something strange is happening inside the old rocket facility.",
             "objectives": [
                 {
-                    "text": "Find the source of the fire ants",
+                    "text": "Investigate the REPCONN Test Site",
+                    "done": true
+                },
+                {
+                    "text": "Find out what the ghouls want",
+                    "done": true
+                },
+                {
+                    "text": "Retrieve the necessary rocket parts",
                     "done": false
                 },
                 {
-                    "text": "Locate Doctor Lesko",
+                    "text": "Help or sabotage the ghoul launch",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "Sierra Madre Grand Opening!",
+            "status": "Active",
+            "description": "A pre-war radio broadcast is advertising the grand opening of the Sierra Madre Casino. The transmission seems to be an automated invitation — but where is it coming from?",
+            "objectives": [
+                {
+                    "text": "Track down the source of the Sierra Madre broadcast",
+                    "done": true
+                },
+                {
+                    "text": "Locate the abandoned Brotherhood of Steel bunker",
+                    "done": false
+                },
+                {
+                    "text": "Investigate Father Elijah's holotape",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "Happy Trails Expedition",
+            "status": "Active",
+            "description": "The Happy Trails Caravan Company is mounting an expedition to re-establish contact with the New Canaanites in Zion Canyon. Jed Masterson is leading the group north.",
+            "objectives": [
+                {
+                    "text": "Meet Jed Masterson at the Northern Passage",
+                    "done": true
+                },
+                {
+                    "text": "Travel light — 75 lbs carry weight or less",
+                    "done": false
+                },
+                {
+                    "text": "Accompany the caravan into Zion Canyon",
                     "done": false
                 }
             ]
@@ -211,143 +239,95 @@
         "player_pos": [
             0.45,
             0.52
-        ],
-        "locations": [
-            {
-                "name": "VAULT 101",
-                "pos": [
-                    0.43,
-                    0.50
-                ],
-                "discovered": true,
-                "type": "vault"
-            },
-            {
-                "name": "MEGATON",
-                "pos": [
-                    0.38,
-                    0.46
-                ],
-                "discovered": true,
-                "type": "town"
-            },
-            {
-                "name": "RIVET CITY",
-                "pos": [
-                    0.72,
-                    0.62
-                ],
-                "discovered": true,
-                "type": "town"
-            },
-            {
-                "name": "TENPENNY TOWER",
-                "pos": [
-                    0.25,
-                    0.58
-                ],
-                "discovered": true,
-                "type": "building"
-            },
-            {
-                "name": "EVERGREEN MILLS",
-                "pos": [
-                    0.20,
-                    0.40
-                ],
-                "discovered": false,
-                "type": "raider"
-            },
-            {
-                "name": "GRAYDITCH",
-                "pos": [
-                    0.52,
-                    0.54
-                ],
-                "discovered": true,
-                "type": "ruin"
-            },
-            {
-                "name": "CANTERBURY COMMONS",
-                "pos": [
-                    0.65,
-                    0.35
-                ],
-                "discovered": false,
-                "type": "town"
-            },
-            {
-                "name": "JURY STREET METRO",
-                "pos": [
-                    0.48,
-                    0.42
-                ],
-                "discovered": true,
-                "type": "metro"
-            },
-            {
-                "name": "CAPITOL BUILDING",
-                "pos": [
-                    0.60,
-                    0.55
-                ],
-                "discovered": true,
-                "type": "landmark"
-            },
-            {
-                "name": "GNR PLAZA",
-                "pos": [
-                    0.55,
-                    0.50
-                ],
-                "discovered": true,
-                "type": "landmark"
-            }
         ]
     },
     "radio": {
         "active_station": 0,
         "stations": [
             {
-                "name": "Galaxy News Radio",
-                "frequency": "GNR",
-                "signal": 0.85,
-                "dj": "Three Dog",
+                "name": "Radio New Vegas",
+                "frequency": "RNV",
+                "signal": 0.90,
+                "dj": "Mr. New Vegas",
                 "status": "ON AIR",
-                "description": "The voice of the Wasteland. News and classic pre-war music."
+                "description": "The voice of the Mojave. News from across the wasteland and 1940s-60s Las Vegas music. Hosted by the charming Mr. New Vegas."
             },
             {
-                "name": "Enclave Radio",
-                "frequency": "ENC 101.7",
-                "signal": 0.65,
-                "dj": "President Eden",
-                "status": "ON AIR",
-                "description": "The official broadcast of the Enclave. Patriotism never dies."
-            },
-            {
-                "name": "Megaton Community Radio",
-                "frequency": "MCR 88.3",
+                "name": "Mojave Music Radio",
+                "frequency": "MMR 98.6",
                 "signal": 0.95,
-                "dj": "Stockholm",
+                "dj": "None",
                 "status": "ON AIR",
-                "description": "Local Megaton broadcasts. Weak but clear signal."
+                "description": "Pre-war country and western music with full Mojave coverage. No host, just the music. Same playlist as Black Mountain Radio."
             },
             {
-                "name": "Agatha's Station",
-                "frequency": "AGT 105.2",
-                "signal": 0.70,
-                "dj": "Agatha",
-                "status": "OFFLINE",
-                "description": "Classical violin music from a wasteland hermit."
+                "name": "Black Mountain Radio",
+                "frequency": "BMR 105.7",
+                "signal": 0.60,
+                "dj": "Tabitha & Rhonda",
+                "status": "ON AIR",
+                "description": "Super mutant propaganda from the State of Utobitha. Best Friend Tabitha interviews herself as her broken Mister Handy, Rhonda."
             },
             {
-                "name": "Vault 101 Distress Signal",
-                "frequency": "VLT 111.0",
+                "name": "Mysterious Broadcast",
+                "frequency": "BIG MT 101.0",
+                "signal": 0.45,
+                "dj": "Unknown",
+                "status": "NO SIGNAL",
+                "description": "A strange repeating broadcast originating from the Big MT research facility, leaking remnants of pre-war experiments."
+            },
+            {
+                "name": "Sierra Madre Broadcast",
+                "frequency": "SM 99.9",
+                "signal": 0.55,
+                "dj": "Automated Host",
+                "status": "ON AIR",
+                "description": "An automated pre-war broadcast advertising the grand opening of the Sierra Madre casino. Still transmitting 200 years after the bombs fell."
+            },
+            {
+                "name": "Happy Trails Expedition",
+                "frequency": "HT 88.3",
                 "signal": 0.30,
-                "dj": "Emergency Broadcast",
+                "dj": "Jed Masterson",
                 "status": "DISTRESS",
-                "description": "An automated distress beacon from Vault 101."
+                "description": "Distress signal from the Happy Trails Caravan Company expedition. The broadcast calls for help somewhere in Zion Canyon."
             }
         ]
-    }
+    },
+    "themes": [
+        {
+            "name": "Pip-Boy Green",
+            "main":            [51, 255, 51],
+            "dark":            [20, 100, 20],
+            "bright":          [102, 255, 102],
+            "dim":             [30, 180, 30],
+            "background":      [10, 20, 10],
+            "scanline":        [0, 0, 0, 30],
+            "quest_completed": [80, 200, 80],
+            "quest_failed":    [200, 80, 80],
+            "radio_offline":   [120, 120, 120],
+            "radio_distress":  [255, 200, 50],
+            "row_alt_bg":      [15, 40, 15],
+            "row_inactive_bg": [10, 30, 10],
+            "card_active_bg":  [12, 35, 12],
+            "card_bg":         [8, 20, 8]
+        },
+        {
+            "name": "Amber",
+            "main":            [255, 176, 0],
+            "dark":            [120, 80, 0],
+            "bright":          [255, 210, 80],
+            "dim":             [180, 120, 0],
+            "background":      [20, 12, 0],
+            "scanline":        [0, 0, 0, 30],
+            "quest_completed": [200, 160, 60],
+            "quest_failed":    [200, 80, 80],
+            "radio_offline":   [100, 80, 40],
+            "radio_distress":  [255, 200, 50],
+            "row_alt_bg":      [40, 25, 0],
+            "row_inactive_bg": [25, 15, 0],
+            "card_active_bg":  [35, 22, 0],
+            "card_bg":         [22, 14, 0]
+        }
+    ]
 }

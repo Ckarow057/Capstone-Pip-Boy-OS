@@ -39,3 +39,7 @@ def get_map_data() -> dict:
 
 def get_radio_data() -> dict:
     return _load()["radio"]
+
+
+def get_themes_data() -> list:
+    return _load()["themes"]

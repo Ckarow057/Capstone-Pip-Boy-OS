@@ -3,23 +3,15 @@ STAT screen (state 0)
 Displays the Vault Boy image and S.P.E.C.I.A.L. stats.
 """
 
-import os
-
 import pygame
-
-from config import PIP_GREEN, PIP_GREEN_BRIGHT, PIP_GREEN_DARK, PIP_GREEN_DIM
-
-# Content area bounds (below header line at y=75, above nav bar at y=height-70)
-_CONTENT_TOP = 85
-_CONTENT_BOTTOM_OFFSET = 75  # subtracted from ui.height
-
-_VAULT_BOY_IMG_PATH = os.path.join(os.path.dirname(__file__), "..", "images", "vault-boy.png")
+import theme
+from config import CONTENT_BOTTOM_OFFSET, CONTENT_TOP, VAULT_BOY_IMG_PATH
 _vault_boy_cache: dict = {}  # keyed by target height so rescaling only happens once per size
 
 
 def _part_color(hp):
     if hp > 60:
-        return PIP_GREEN
+        return theme.PIP_GREEN
     if hp > 30:
         return (255, 255, 51)
     return (255, 80, 80)
@@ -42,11 +34,11 @@ _SPECIAL_FULL = {
 
 def _draw_special(surface, ui, special_stats):
     x = 40
-    y = _CONTENT_TOP + 10
+    y = CONTENT_TOP + 10
     row_h = 62
 
     # Section label
-    label = ui.fonts.medium.render("S.P.E.C.I.A.L.", True, PIP_GREEN_BRIGHT)
+    label = ui.fonts.medium.render("S.P.E.C.I.A.L.", True, theme.PIP_GREEN_BRIGHT)
     surface.blit(label, (x, y))
     y += 38
 
@@ -54,18 +46,18 @@ def _draw_special(surface, ui, special_stats):
         val = special_stats.get(abbr, 0)
 
         # Full name + value
-        name_surf = ui.fonts.small.render(f"{full}", True, PIP_GREEN_DIM)
+        name_surf = ui.fonts.small.render(f"{full}", True, theme.PIP_GREEN_DIM)
         surface.blit(name_surf, (x, y))
-        val_surf = ui.fonts.medium.render(str(val), True, PIP_GREEN_BRIGHT)
+        val_surf = ui.fonts.medium.render(str(val), True, theme.PIP_GREEN_BRIGHT)
         surface.blit(val_surf, (x + 190, y - 2))
 
         # Pip bar: 10 small rectangles
         bar_x = x
         bar_y = y + 22
         for pip in range(10):
-            color = PIP_GREEN if pip < val else PIP_GREEN_DARK
+            color = theme.PIP_GREEN if pip < val else theme.PIP_GREEN_DARK
             pygame.draw.rect(surface, color, (bar_x + pip * 21, bar_y, 17, 8))
-            pygame.draw.rect(surface, PIP_GREEN_DARK, (bar_x + pip * 21, bar_y, 17, 8), 1)
+            pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (bar_x + pip * 21, bar_y, 17, 8), 1)
 
         y += row_h
 
@@ -75,28 +67,32 @@ def _draw_special(surface, ui, special_stats):
 # ---------------------------------------------------------------------------
 
 def _get_vault_boy(target_h: int) -> pygame.Surface:
-    """Return a cached, scaled, black-keyed copy of the vault-boy image."""
-    if target_h not in _vault_boy_cache:
-        raw = pygame.image.load(_VAULT_BOY_IMG_PATH).convert()
+    """Return a cached, scaled, theme-tinted copy of the vault-boy image."""
+    key = (target_h, theme.PIP_GREEN)
+    if key not in _vault_boy_cache:
+        raw = pygame.image.load(VAULT_BOY_IMG_PATH).convert()
         raw.set_colorkey((0, 0, 0))
         orig_w, orig_h = raw.get_size()
         scale = target_h / orig_h
         scaled = pygame.transform.smoothscale(raw, (int(orig_w * scale), target_h))
-        _vault_boy_cache[target_h] = scaled
-    return _vault_boy_cache[target_h]
+        tinted = pygame.transform.grayscale(scaled)
+        tinted.fill(theme.PIP_GREEN, special_flags=pygame.BLEND_RGB_MULT)
+        tinted.set_colorkey((0, 0, 0))
+        _vault_boy_cache[key] = tinted
+    return _vault_boy_cache[key]
 
 
 def _draw_vault_boy(surface, ui, player_stats, body_parts):
-    content_h = ui.height - _CONTENT_BOTTOM_OFFSET - _CONTENT_TOP
+    content_h = ui.height - CONTENT_BOTTOM_OFFSET - CONTENT_TOP
     target_h = int(content_h * 0.85)  # fill ~85% of the content column height
 
     img = _get_vault_boy(target_h)
     cx = ui.width // 2
-    img_rect = img.get_rect(centerx=cx, top=_CONTENT_TOP + (content_h - target_h) // 2)
+    img_rect = img.get_rect(centerx=cx, top=CONTENT_TOP + (content_h - target_h) // 2)
     surface.blit(img, img_rect)
 
     # Level label below the image
-    lv_surf = ui.fonts.medium.render(f"LEVEL  {player_stats['level']}", True, PIP_GREEN)
+    lv_surf = ui.fonts.medium.render(f"LEVEL  {player_stats['level']}", True, theme.PIP_GREEN)
     lv_rect = lv_surf.get_rect(centerx=cx, top=img_rect.bottom + 8)
     surface.blit(lv_surf, lv_rect)
 
@@ -107,12 +103,12 @@ def _draw_vault_boy(surface, ui, player_stats, body_parts):
 
 def _draw_condition_bars(surface, ui, body_parts):
     x = ui.width - 280
-    y = _CONTENT_TOP + 10
+    y = CONTENT_TOP + 10
     bar_w = 200
     bar_h = 14
     row_h = 52
 
-    label = ui.fonts.medium.render("CONDITION", True, PIP_GREEN_BRIGHT)
+    label = ui.fonts.medium.render("CONDITION", True, theme.PIP_GREEN_BRIGHT)
     surface.blit(label, (x, y))
     y += 38
 
@@ -127,16 +123,16 @@ def _draw_condition_bars(surface, ui, body_parts):
         hp = body_parts[part_key]
         color = _part_color(hp)
 
-        name_surf = ui.fonts.small.render(display_name, True, PIP_GREEN_DIM)
+        name_surf = ui.fonts.small.render(display_name, True, theme.PIP_GREEN_DIM)
         surface.blit(name_surf, (x, y))
 
         pct_surf = ui.fonts.small.render(f"{hp}%", True, color)
         surface.blit(pct_surf, (x + bar_w + 8, y))
 
         bar_y = y + 22
-        pygame.draw.rect(surface, PIP_GREEN_DARK, (x, bar_y, bar_w, bar_h), 0)
+        pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (x, bar_y, bar_w, bar_h), 0)
         pygame.draw.rect(surface, color, (x, bar_y, int(bar_w * hp / 100), bar_h), 0)
-        pygame.draw.rect(surface, PIP_GREEN, (x, bar_y, bar_w, bar_h), 1)
+        pygame.draw.rect(surface, theme.PIP_GREEN, (x, bar_y, bar_w, bar_h), 1)
 
         y += row_h
 
