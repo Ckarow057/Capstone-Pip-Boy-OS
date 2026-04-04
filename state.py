@@ -1,12 +1,24 @@
 import math
 from dataclasses import dataclass
+from enum import IntEnum
 
 from data_loader import (
     get_body_parts_data,
     get_inventory_data,
+    get_map_data,
     get_player_stats_data,
+    get_quests_data,
+    get_radio_data,
     get_special_stats_data,
 )
+
+
+class ScreenState(IntEnum):
+    STAT = 0
+    ITEMS = 1
+    DATA = 2
+    MAP = 3
+    RADIO = 4
 
 
 @dataclass
@@ -39,7 +51,11 @@ class AppState:
     inventory: list
     special_stats: dict
     body_parts: dict
+    quests: list
+    map_data: dict
+    radio_data: dict
     animation: AnimationState
+    current_screen: ScreenState = ScreenState.STAT
 
 
 def create_initial_state():
@@ -48,5 +64,8 @@ def create_initial_state():
         inventory=get_inventory_data(),
         special_stats=get_special_stats_data(),
         body_parts=get_body_parts_data(),
+        quests=get_quests_data(),
+        map_data=get_map_data(),
+        radio_data=get_radio_data(),
         animation=AnimationState()
     )

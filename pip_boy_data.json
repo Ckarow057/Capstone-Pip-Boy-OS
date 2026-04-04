@@ -1,0 +1,353 @@
+{
+    "player_stats": {
+        "name": "VAULT DWELLER",
+        "level": 1,
+        "hp": 200,
+        "max_hp": 200,
+        "ap": 80,
+        "max_ap": 80,
+        "rads": 12,
+        "xp": 10,
+        "next_level": 200,
+        "caps": 542,
+        "condition": 85,
+        "effects": 0
+    },
+    "special": {
+        "S": 7,
+        "P": 6,
+        "E": 5,
+        "C": 4,
+        "I": 8,
+        "A": 6,
+        "L": 5
+    },
+    "body_parts": {
+        "head": 100,
+        "torso": 85,
+        "left_arm": 90,
+        "right_arm": 100,
+        "left_leg": 75,
+        "right_leg": 80
+    },
+    "inventory": [
+        {
+            "name": "Stimpak",
+            "count": 5,
+            "hotkey": "S",
+            "category": "Aid",
+            "weight": 0.1,
+            "value": 75,
+            "description": "Instantly heals 30 HP."
+        },
+        {
+            "name": "Doctor's Bag",
+            "count": 3,
+            "hotkey": "E",
+            "category": "Aid",
+            "weight": 2.0,
+            "value": 100,
+            "description": "Heals crippled limbs."
+        },
+        {
+            "name": "10mm Pistol",
+            "count": 1,
+            "hotkey": "-",
+            "category": "Weapons",
+            "weight": 3.5,
+            "value": 250,
+            "description": "Standard sidearm. Semi-automatic."
+        },
+        {
+            "name": "Vault Suit",
+            "count": 1,
+            "hotkey": "-",
+            "category": "Apparel",
+            "weight": 5.0,
+            "value": 50,
+            "description": "Standard Vault-Tec jumpsuit. DR 10."
+        },
+        {
+            "name": "10mm Rounds",
+            "count": 120,
+            "hotkey": "-",
+            "category": "Ammo",
+            "weight": 0.0,
+            "value": 1,
+            "description": "Standard 10mm ammunition."
+        },
+        {
+            "name": "Nuka-Cola",
+            "count": 4,
+            "hotkey": "-",
+            "category": "Aid",
+            "weight": 1.0,
+            "value": 10,
+            "description": "Restores 10 HP. +5 Rads."
+        },
+        {
+            "name": "RadAway",
+            "count": 2,
+            "hotkey": "-",
+            "category": "Aid",
+            "weight": 1.0,
+            "value": 60,
+            "description": "Removes 100 rads over time."
+        },
+        {
+            "name": "Combat Knife",
+            "count": 1,
+            "hotkey": "-",
+            "category": "Weapons",
+            "weight": 2.0,
+            "value": 150,
+            "description": "Lightweight melee weapon. DMG 20."
+        },
+        {
+            "name": "Bobby Pin",
+            "count": 15,
+            "hotkey": "-",
+            "category": "Misc",
+            "weight": 0.0,
+            "value": 1,
+            "description": "Used for lockpicking."
+        },
+        {
+            "name": "Scrap Metal",
+            "count": 6,
+            "hotkey": "-",
+            "category": "Misc",
+            "weight": 2.0,
+            "value": 3,
+            "description": "Useful junk for crafting."
+        }
+    ],
+    "quests": [
+        {
+            "name": "ESCAPE FROM VAULT 101",
+            "status": "Completed",
+            "description": "You have escaped the Vault.",
+            "objectives": [
+                {
+                    "text": "Escape the Vault",
+                    "done": true
+                },
+                {
+                    "text": "Reach Megaton",
+                    "done": true
+                }
+            ]
+        },
+        {
+            "name": "FOLLOWING IN HIS FOOTSTEPS",
+            "status": "Active",
+            "description": "Find Father's trail leading from Vault 101.",
+            "objectives": [
+                {
+                    "text": "Ask about James in Megaton",
+                    "done": true
+                },
+                {
+                    "text": "Travel to Rivet City",
+                    "done": false
+                },
+                {
+                    "text": "Speak with Dr. Li",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "THE WASTELAND SURVIVAL GUIDE",
+            "status": "Active",
+            "description": "Help Moira Brown write her survival guide.",
+            "objectives": [
+                {
+                    "text": "Gather food supplies",
+                    "done": true
+                },
+                {
+                    "text": "Test water purifier",
+                    "done": false
+                },
+                {
+                    "text": "Explore Germantown Police HQ",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "POWER OF THE ATOM",
+            "status": "Failed",
+            "description": "Decide the fate of the Megaton bomb.",
+            "objectives": [
+                {
+                    "text": "Speak with Sheriff Lucas Simms",
+                    "done": true
+                },
+                {
+                    "text": "Disarm or detonate the bomb",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "THOSE!",
+            "status": "Active",
+            "description": "Help the residents of Grayditch with their fire ant problem.",
+            "objectives": [
+                {
+                    "text": "Find the source of the fire ants",
+                    "done": false
+                },
+                {
+                    "text": "Locate Doctor Lesko",
+                    "done": false
+                }
+            ]
+        }
+    ],
+    "map": {
+        "player_pos": [
+            0.45,
+            0.52
+        ],
+        "locations": [
+            {
+                "name": "VAULT 101",
+                "pos": [
+                    0.43,
+                    0.50
+                ],
+                "discovered": true,
+                "type": "vault"
+            },
+            {
+                "name": "MEGATON",
+                "pos": [
+                    0.38,
+                    0.46
+                ],
+                "discovered": true,
+                "type": "town"
+            },
+            {
+                "name": "RIVET CITY",
+                "pos": [
+                    0.72,
+                    0.62
+                ],
+                "discovered": true,
+                "type": "town"
+            },
+            {
+                "name": "TENPENNY TOWER",
+                "pos": [
+                    0.25,
+                    0.58
+                ],
+                "discovered": true,
+                "type": "building"
+            },
+            {
+                "name": "EVERGREEN MILLS",
+                "pos": [
+                    0.20,
+                    0.40
+                ],
+                "discovered": false,
+                "type": "raider"
+            },
+            {
+                "name": "GRAYDITCH",
+                "pos": [
+                    0.52,
+                    0.54
+                ],
+                "discovered": true,
+                "type": "ruin"
+            },
+            {
+                "name": "CANTERBURY COMMONS",
+                "pos": [
+                    0.65,
+                    0.35
+                ],
+                "discovered": false,
+                "type": "town"
+            },
+            {
+                "name": "JURY STREET METRO",
+                "pos": [
+                    0.48,
+                    0.42
+                ],
+                "discovered": true,
+                "type": "metro"
+            },
+            {
+                "name": "CAPITOL BUILDING",
+                "pos": [
+                    0.60,
+                    0.55
+                ],
+                "discovered": true,
+                "type": "landmark"
+            },
+            {
+                "name": "GNR PLAZA",
+                "pos": [
+                    0.55,
+                    0.50
+                ],
+                "discovered": true,
+                "type": "landmark"
+            }
+        ]
+    },
+    "radio": {
+        "active_station": 0,
+        "stations": [
+            {
+                "name": "Galaxy News Radio",
+                "frequency": "GNR",
+                "signal": 0.85,
+                "dj": "Three Dog",
+                "status": "ON AIR",
+                "description": "The voice of the Wasteland. News and classic pre-war music."
+            },
+            {
+                "name": "Enclave Radio",
+                "frequency": "ENC 101.7",
+                "signal": 0.65,
+                "dj": "President Eden",
+                "status": "ON AIR",
+                "description": "The official broadcast of the Enclave. Patriotism never dies."
+            },
+            {
+                "name": "Megaton Community Radio",
+                "frequency": "MCR 88.3",
+                "signal": 0.95,
+                "dj": "Stockholm",
+                "status": "ON AIR",
+                "description": "Local Megaton broadcasts. Weak but clear signal."
+            },
+            {
+                "name": "Agatha's Station",
+                "frequency": "AGT 105.2",
+                "signal": 0.70,
+                "dj": "Agatha",
+                "status": "OFFLINE",
+                "description": "Classical violin music from a wasteland hermit."
+            },
+            {
+                "name": "Vault 101 Distress Signal",
+                "frequency": "VLT 111.0",
+                "signal": 0.30,
+                "dj": "Emergency Broadcast",
+                "status": "DISTRESS",
+                "description": "An automated distress beacon from Vault 101."
+            }
+        ]
+    }
+}
