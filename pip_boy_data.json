@@ -14,10 +14,10 @@
         "effects": 0
     },
     "special": {
-        "S": 7,
-        "P": 6,
-        "E": 5,
-        "C": 4,
+        "S": 10,
+        "P": 10,
+        "E": 2,
+        "C": 1,
         "I": 1,
         "A": 6,
         "L": 10
@@ -297,37 +297,151 @@
     "themes": [
         {
             "name": "Pip-Boy Green",
-            "main":            [51, 255, 51],
-            "dark":            [20, 100, 20],
-            "bright":          [102, 255, 102],
-            "dim":             [30, 180, 30],
-            "background":      [10, 20, 10],
-            "scanline":        [0, 0, 0, 30],
-            "quest_completed": [80, 200, 80],
-            "quest_failed":    [200, 80, 80],
-            "radio_offline":   [120, 120, 120],
-            "radio_distress":  [255, 200, 50],
-            "row_alt_bg":      [15, 40, 15],
-            "row_inactive_bg": [10, 30, 10],
-            "card_active_bg":  [12, 35, 12],
-            "card_bg":         [8, 20, 8]
+            "main": [
+                51,
+                255,
+                51
+            ],
+            "dark": [
+                20,
+                100,
+                20
+            ],
+            "bright": [
+                102,
+                255,
+                102
+            ],
+            "dim": [
+                30,
+                180,
+                30
+            ],
+            "background": [
+                10,
+                20,
+                10
+            ],
+            "scanline": [
+                0,
+                0,
+                0,
+                30
+            ],
+            "quest_completed": [
+                80,
+                200,
+                80
+            ],
+            "quest_failed": [
+                200,
+                80,
+                80
+            ],
+            "radio_offline": [
+                120,
+                120,
+                120
+            ],
+            "radio_distress": [
+                255,
+                200,
+                50
+            ],
+            "row_alt_bg": [
+                15,
+                40,
+                15
+            ],
+            "row_inactive_bg": [
+                10,
+                30,
+                10
+            ],
+            "card_active_bg": [
+                12,
+                35,
+                12
+            ],
+            "card_bg": [
+                8,
+                20,
+                8
+            ]
         },
         {
             "name": "Amber",
-            "main":            [255, 176, 0],
-            "dark":            [120, 80, 0],
-            "bright":          [255, 210, 80],
-            "dim":             [180, 120, 0],
-            "background":      [20, 12, 0],
-            "scanline":        [0, 0, 0, 30],
-            "quest_completed": [200, 160, 60],
-            "quest_failed":    [200, 80, 80],
-            "radio_offline":   [100, 80, 40],
-            "radio_distress":  [255, 200, 50],
-            "row_alt_bg":      [40, 25, 0],
-            "row_inactive_bg": [25, 15, 0],
-            "card_active_bg":  [35, 22, 0],
-            "card_bg":         [22, 14, 0]
+            "main": [
+                255,
+                176,
+                0
+            ],
+            "dark": [
+                120,
+                80,
+                0
+            ],
+            "bright": [
+                255,
+                210,
+                80
+            ],
+            "dim": [
+                180,
+                120,
+                0
+            ],
+            "background": [
+                20,
+                12,
+                0
+            ],
+            "scanline": [
+                0,
+                0,
+                0,
+                30
+            ],
+            "quest_completed": [
+                200,
+                160,
+                60
+            ],
+            "quest_failed": [
+                200,
+                80,
+                80
+            ],
+            "radio_offline": [
+                100,
+                80,
+                40
+            ],
+            "radio_distress": [
+                255,
+                200,
+                50
+            ],
+            "row_alt_bg": [
+                40,
+                25,
+                0
+            ],
+            "row_inactive_bg": [
+                25,
+                15,
+                0
+            ],
+            "card_active_bg": [
+                35,
+                22,
+                0
+            ],
+            "card_bg": [
+                22,
+                14,
+                0
+            ]
         }
     ]
 }
