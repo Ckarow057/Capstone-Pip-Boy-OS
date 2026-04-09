@@ -136,11 +136,6 @@ def draw_glitch_effect(surface, ui, intensity):
             y = pygame.time.get_ticks() % ui.height
             pygame.draw.line(surface, theme.PIP_GREEN_BRIGHT, (0, y), (ui.width, y), 2)
 
-
-# ---------------------------------------------------------------------------
-# Main redraw dispatcher
-# ---------------------------------------------------------------------------
-
 def redraw(surface, ui, app_state):
     surface.fill(theme.BACKGROUND)
     draw_border(surface, ui)
