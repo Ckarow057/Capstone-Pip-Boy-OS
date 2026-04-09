@@ -61,9 +61,9 @@ def draw(surface, ui, app_state):
 
         # Card background
         bg_color = theme.CARD_ACTIVE_BG if active else theme.CARD_BG
-        pygame.draw.rect(surface, bg_color, (list_x, list_y, card_w, card_h), 0)
+        pygame.draw.rect(surface, bg_color, (list_x, list_y, card_w, card_h), 0, border_radius=5)
         border_color = theme.PIP_GREEN_BRIGHT if active else theme.PIP_GREEN_DARK
-        pygame.draw.rect(surface, border_color, (list_x, list_y, card_w, card_h), 2)
+        pygame.draw.rect(surface, border_color, (list_x, list_y, card_w, card_h), 2, border_radius=5)
 
         # Station name + frequency
         name_color = theme.PIP_GREEN_BRIGHT if active else theme.PIP_GREEN
@@ -97,8 +97,8 @@ def draw(surface, ui, app_state):
         if active and is_on:
             wave_cx = list_x + card_w - 300
             wave_cy = list_y + card_h // 2
-            _draw_waveform(surface, wave_cx, wave_cy, 120, 8, theme.PIP_GREEN_DARK)
-            _draw_waveform(surface, wave_cx, wave_cy, 100, 5, theme.PIP_GREEN)
+            _draw_waveform(surface, wave_cx, wave_cy, 120, 4, theme.PIP_GREEN_DARK)
+            _draw_waveform(surface, wave_cx, wave_cy, 120, 16, theme.PIP_GREEN)
 
         list_y += card_h + card_gap
 

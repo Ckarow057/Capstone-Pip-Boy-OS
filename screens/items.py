@@ -23,8 +23,8 @@ def draw(surface, ui, app_state):
     cat_h = 34
 
     for cat in INVENTORY_CATEGORIES:
-        pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (cat_x, cat_y, cat_w, cat_h), 0)
-        pygame.draw.rect(surface, theme.PIP_GREEN, (cat_x, cat_y, cat_w, cat_h), 1)
+        pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (cat_x, cat_y, cat_w, cat_h), 0, border_radius=4)
+        pygame.draw.rect(surface, theme.PIP_GREEN, (cat_x, cat_y, cat_w, cat_h), 1, border_radius=4)
         cat_surf = ui.fonts.small.render(cat, True, theme.PIP_GREEN)
         cat_rect = cat_surf.get_rect(midleft=(cat_x + 10, cat_y + cat_h // 2))
         surface.blit(cat_surf, cat_rect)

@@ -4,6 +4,7 @@ import pygame
 import theme
 
 from graphics import redraw
+from hardware import HW_EVENT
 from state import ScreenState
 
 _DATA_GROUP = (ScreenState.DATA, ScreenState.MAP, ScreenState.RADIO)
@@ -44,6 +45,20 @@ def process_input(app_state):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             return False
+        if event.type == HW_EVENT:
+            action = event.action
+            if action == "stat":
+                app_state.current_screen = ScreenState.STAT
+            elif action == "items":
+                app_state.current_screen = ScreenState.ITEMS
+            elif action == "data":
+                _cycle_data_group(app_state)
+            elif action == "scroll_down":
+                _scroll_selection(app_state, +1)
+            elif action == "scroll_up":
+                _scroll_selection(app_state, -1)
+            elif action == "theme":
+                _cycle_theme(app_state)
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 return False

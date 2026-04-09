@@ -37,8 +37,8 @@ def draw_crt_effect(surface, ui, flicker_intensity=0):
 
 
 def draw_border(surface, ui):
-    pygame.draw.rect(surface, theme.PIP_GREEN, (10, 10, ui.width - 20, ui.height - 20), 3)
-    pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (15, 15, ui.width - 30, ui.height - 30), 2)
+    pygame.draw.rect(surface, theme.PIP_GREEN, (10, 10, ui.width - 20, ui.height - 20), 3, border_radius=10)
+    pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (15, 15, ui.width - 30, ui.height - 30), 2, border_radius=8)
 
 
 def draw_text_with_glow(surface, text, pos, font, color=None, glow=True):
@@ -61,23 +61,23 @@ def draw_header(surface, ui, player_stats):
     box_height = 40
 
     lvl_x = 30
-    pygame.draw.rect(surface, theme.PIP_GREEN, (lvl_x, box_y, 120, box_height), 2)
+    pygame.draw.rect(surface, theme.PIP_GREEN, (lvl_x, box_y, 120, box_height), 2, border_radius=4)
     draw_text_with_glow(surface, f"LVL  {player_stats['level']}", (lvl_x + 10, box_y + 10), ui.fonts.small, theme.PIP_GREEN, False)
 
     hp_x = 170
-    pygame.draw.rect(surface, theme.PIP_GREEN, (hp_x, box_y, 180, box_height), 2)
+    pygame.draw.rect(surface, theme.PIP_GREEN, (hp_x, box_y, 180, box_height), 2, border_radius=4)
     draw_text_with_glow(surface, f"HP   {player_stats['hp']}/{player_stats['max_hp']}", (hp_x + 10, box_y + 10), ui.fonts.small, theme.PIP_GREEN, False)
 
     ap_x = 370
-    pygame.draw.rect(surface, theme.PIP_GREEN, (ap_x, box_y, 150, box_height), 2)
+    pygame.draw.rect(surface, theme.PIP_GREEN, (ap_x, box_y, 150, box_height), 2, border_radius=4)
     draw_text_with_glow(surface, f"AP   {player_stats['ap']}/{player_stats['max_ap']}", (ap_x + 10, box_y + 10), ui.fonts.small, theme.PIP_GREEN, False)
 
     xp_x = 540
-    pygame.draw.rect(surface, theme.PIP_GREEN, (xp_x, box_y, 200, box_height), 2)
+    pygame.draw.rect(surface, theme.PIP_GREEN, (xp_x, box_y, 200, box_height), 2, border_radius=4)
     draw_text_with_glow(surface, f"XP   {player_stats['xp']}/{player_stats['next_level']}", (xp_x + 10, box_y + 10), ui.fonts.small, theme.PIP_GREEN, False)
 
     rads_x = 760
-    pygame.draw.rect(surface, theme.PIP_GREEN, (rads_x, box_y, 160, box_height), 2)
+    pygame.draw.rect(surface, theme.PIP_GREEN, (rads_x, box_y, 160, box_height), 2, border_radius=4)
     draw_text_with_glow(surface, f"RADS {player_stats['rads']}", (rads_x + 10, box_y + 10), ui.fonts.small, theme.PIP_GREEN, False)
 
     pygame.draw.line(surface, theme.PIP_GREEN, (30, 75), (ui.width - 30, 75), 2)
@@ -108,9 +108,9 @@ def draw_nav_tabs(surface, ui, current_screen):
             active = (i == int(current_screen))
 
         if active:
-            pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (tab_x, tab_y, tab_width - 8, 45), 0)
+            pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (tab_x, tab_y, tab_width - 8, 45), 0, border_radius=4)
 
-        pygame.draw.rect(surface, theme.PIP_GREEN, (tab_x, tab_y, tab_width - 8, 45), 2)
+        pygame.draw.rect(surface, theme.PIP_GREEN, (tab_x, tab_y, tab_width - 8, 45), 2, border_radius=4)
 
         text_color = theme.PIP_GREEN_BRIGHT if active else theme.PIP_GREEN_DIM
         center_x = tab_x + (tab_width - 8) // 2

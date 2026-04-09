@@ -14,11 +14,22 @@ SCANLINE_COLOR = (0, 0, 0, 30)
 # MAP and RADIO are sub-screens cycled under DATA (button 3).
 SCREEN_LABELS = ["STAT", "ITEMS", "DATA"]
 
-# Raspberry Pi GPIO pin numbers (BCM numbering) — used when hardware buttons are wired up.
-# Connect button between GPIO pin and GND; internal pull-up is enabled.
-GPIO_NEXT_BUTTON_PIN = 17
-GPIO_PREV_BUTTON_PIN = 27
-GPIO_BUTTON_BOUNCETIME_MS = 200
+# Raspberry Pi GPIO pin numbers (BCM numbering) — used when hardware is wired up.
+# Connect each button/encoder pin to GND when activated; internal pull-ups are enabled.
+# Change these to match your actual wiring.
+
+# 3 navigation buttons
+GPIO_BTN_STAT_PIN  = 17   # Button 1 → STAT screen
+GPIO_BTN_ITEMS_PIN = 22   # Button 2 → ITEMS screen
+GPIO_BTN_DATA_PIN  = 27   # Button 3 → cycle DATA / MAP / RADIO
+
+# Rotary encoder
+GPIO_ENC_CLK_PIN = 13   # CLK (A) — rotation detection
+GPIO_ENC_DT_PIN  = 19   # DT  (B) — direction detection
+GPIO_ENC_SW_PIN  = 26   # SW  (push-click) → cycle colour theme
+
+GPIO_BUTTON_BOUNCETIME_MS  = 200   # debounce for push buttons (ms)
+GPIO_ENCODER_BOUNCETIME_MS = 5     # debounce for encoder CLK (ms)
 
 # ---------------------------------------------------------------------------
 # Shared layout / display constants

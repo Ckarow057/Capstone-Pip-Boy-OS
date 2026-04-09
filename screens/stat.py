@@ -56,8 +56,8 @@ def _draw_special(surface, ui, special_stats):
         bar_y = y + 22
         for pip in range(10):
             color = theme.PIP_GREEN if pip < val else theme.PIP_GREEN_DARK
-            pygame.draw.rect(surface, color, (bar_x + pip * 21, bar_y, 17, 8))
-            pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (bar_x + pip * 21, bar_y, 17, 8), 1)
+            pygame.draw.rect(surface, color, (bar_x + pip * 21, bar_y, 17, 8), border_radius=2)
+            pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (bar_x + pip * 21, bar_y, 17, 8), 1, border_radius=2)
 
         y += row_h
 
@@ -130,9 +130,9 @@ def _draw_condition_bars(surface, ui, body_parts):
         surface.blit(pct_surf, (x + bar_w + 8, y))
 
         bar_y = y + 22
-        pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (x, bar_y, bar_w, bar_h), 0)
-        pygame.draw.rect(surface, color, (x, bar_y, int(bar_w * hp / 100), bar_h), 0)
-        pygame.draw.rect(surface, theme.PIP_GREEN, (x, bar_y, bar_w, bar_h), 1)
+        pygame.draw.rect(surface, theme.PIP_GREEN_DARK, (x, bar_y, bar_w, bar_h), 0, border_radius=3)
+        pygame.draw.rect(surface, color, (x, bar_y, int(bar_w * hp / 100), bar_h), 0, border_radius=3)
+        pygame.draw.rect(surface, theme.PIP_GREEN, (x, bar_y, bar_w, bar_h), 1, border_radius=3)
 
         y += row_h
 
