@@ -10,13 +10,8 @@ PIP_GREEN_DIM = (30, 180, 30)
 BACKGROUND = (10, 20, 10)
 SCANLINE_COLOR = (0, 0, 0, 30)
 
-# Screen labels for the 3 main nav tabs.
-# MAP and RADIO are sub-screens cycled under DATA (button 3).
-SCREEN_LABELS = ["STAT", "ITEMS", "DATA"]
 
-# Raspberry Pi GPIO pin numbers (BCM numbering) — used when hardware is wired up.
-# Connect each button/encoder pin to GND when activated; internal pull-ups are enabled.
-# Change these to match your actual wiring.
+SCREEN_LABELS = ["STAT", "ITEMS", "DATA"]
 
 # 3 navigation buttons
 GPIO_BTN_STAT_PIN  = 17   # Button 1 → STAT screen
@@ -29,13 +24,11 @@ GPIO_ENC_DT_PIN  = 19   # DT  (B) — direction detection
 GPIO_ENC_SW_PIN  = 26   # SW  (push-click) → cycle colour theme
 
 GPIO_BUTTON_BOUNCETIME_MS  = 200   # debounce for push buttons (ms)
-GPIO_ENCODER_BOUNCETIME_MS = 5     # debounce for encoder CLK (ms)
+GPIO_ENCODER_BOUNCETIME_MS = 50    # debounce for encoder CLK (ms)
 
-# ---------------------------------------------------------------------------
-# Shared layout / display constants
-# ---------------------------------------------------------------------------
-CONTENT_TOP = 85              # y-coordinate where screen content begins (below header)
-CONTENT_BOTTOM_OFFSET = 75   # subtracted from window height to get content bottom
+
+CONTENT_TOP = 85           
+CONTENT_BOTTOM_OFFSET = 75   
 
 INVENTORY_CATEGORIES = ["All", "Weapons", "Apparel", "Aid", "Misc", "Ammo"]
 

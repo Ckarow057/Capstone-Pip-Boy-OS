@@ -56,29 +56,18 @@ def _btn_data_cb(channel):
 # Encoder callbacks
 # ---------------------------------------------------------------------------
 
-# Tracks the previous CLK state so we can detect a clean LOW→HIGH transition.
-# Initialized to HIGH (rest state) in setup().
-_enc_last_clk = None
-
-
 def _enc_clk_cb(channel):
-    """Called on any CLK edge (BOTH).
+    """Called on a FALLING edge of CLK.
 
-    Fires a scroll event exactly once per physical detent by only acting on
-    the CLK LOW→HIGH (rising) transition.  Checking DT at the rising edge:
-        DT HIGH → clockwise       → scroll down
+    At the CLK falling edge, DT reliably indicates direction:
+        DT HIGH → clockwise         → scroll down
         DT LOW  → counter-clockwise → scroll up
-    This correctly handles encoders that emit 2 or 4 pulses per detent.
     """
-    global _enc_last_clk
-    clk = GPIO.input(GPIO_ENC_CLK_PIN)
-    if _enc_last_clk == GPIO.LOW and clk == GPIO.HIGH:
-        dt_state = GPIO.input(GPIO_ENC_DT_PIN)
-        if dt_state == GPIO.HIGH:
-            _post("scroll_down")
-        else:
-            _post("scroll_up")
-    _enc_last_clk = clk
+    dt_state = GPIO.input(GPIO_ENC_DT_PIN)
+    if dt_state == GPIO.HIGH:
+        _post("scroll_down")
+    else:
+        _post("scroll_up")
 
 
 def _enc_sw_cb(channel):
@@ -109,9 +98,6 @@ def setup() -> None:
     for pin in (GPIO_ENC_CLK_PIN, GPIO_ENC_DT_PIN):
         GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-    global _enc_last_clk
-    _enc_last_clk = GPIO.HIGH  # encoders rest with CLK high
-
     # Register callbacks
     GPIO.add_event_detect(
         GPIO_BTN_STAT_PIN, GPIO.FALLING,
@@ -134,10 +120,11 @@ def setup() -> None:
         bouncetime=GPIO_BUTTON_BOUNCETIME_MS,
     )
     GPIO.add_event_detect(
-        GPIO_ENC_CLK_PIN, GPIO.BOTH,
+        GPIO_ENC_CLK_PIN, GPIO.FALLING,
         callback=_enc_clk_cb,
         bouncetime=GPIO_ENCODER_BOUNCETIME_MS,
     )
+    
 
 
 def cleanup() -> None:

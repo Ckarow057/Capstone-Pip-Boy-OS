@@ -9,3 +9,6 @@ The Operating system for a Raspberry Pi wrist mounted computer, inspired by the 
 - `game_loop.py`: input handling and update/render loop
 - `ui.py`: pygame setup and UI context creation
 - `config.py`: window and color constants
+
+## Testing Command
+python -m unittest tests/test_hardware.py -v

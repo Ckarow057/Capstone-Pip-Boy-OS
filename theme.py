@@ -1,11 +1,3 @@
-"""Active colour theme — module-level variables mutated at runtime via apply_theme().
-
-All rendering code must use  `import theme`  and reference  `theme.PIP_GREEN`  etc.
-Using  `from theme import PIP_GREEN`  takes a snapshot at import time and will NOT
-reflect subsequent theme switches, so it is intentionally avoided in rendering modules.
-"""
-
-# Initial values: Pip-Boy Green (matches the first theme in pip_boy_data.json).
 PIP_GREEN        = (51, 255, 51)
 PIP_GREEN_DARK   = (20, 100, 20)
 PIP_GREEN_BRIGHT = (102, 255, 102)
@@ -25,7 +17,6 @@ RADIO_STATUS_COLORS = {
     "DISTRESS": (255, 200, 50),
 }
 
-# Background tints used in list/card views.
 ROW_ALT_BG      = (15, 40, 15)
 ROW_INACTIVE_BG = (10, 30, 10)
 CARD_ACTIVE_BG  = (12, 35, 12)
@@ -33,7 +24,6 @@ CARD_BG         = (8, 20, 8)
 
 
 def apply_theme(palette: dict) -> None:
-    """Update all module-level colour variables from a theme palette dict loaded from JSON."""
     global PIP_GREEN, PIP_GREEN_DARK, PIP_GREEN_BRIGHT, PIP_GREEN_DIM
     global BACKGROUND, SCANLINE_COLOR
     global QUEST_STATUS_COLORS, RADIO_STATUS_COLORS
