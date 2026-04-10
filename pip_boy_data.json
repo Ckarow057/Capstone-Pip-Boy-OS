@@ -1,0 +1,447 @@
+{
+    "player_stats": {
+        "name": "Courier 6",
+        "level": 1,
+        "hp": 200,
+        "max_hp": 200,
+        "ap": 80,
+        "max_ap": 80,
+        "rads": 12,
+        "xp": 10,
+        "next_level": 200,
+        "caps": 542,
+        "condition": 100,
+        "effects": 0
+    },
+    "special": {
+        "S": 10,
+        "P": 10,
+        "E": 2,
+        "C": 1,
+        "I": 1,
+        "A": 6,
+        "L": 10
+    },
+    "body_parts": {
+        "head": 100,
+        "torso": 100,
+        "left_arm": 100,
+        "right_arm": 100,
+        "left_leg": 100,
+        "right_leg": 100
+    },
+    "inventory": [
+        {
+            "name": "Stimpak",
+            "count": 5,
+            "hotkey": "S",
+            "category": "Aid",
+            "weight": 0.1,
+            "value": 75,
+            "description": "Instantly heals 30 HP."
+        },
+        {
+            "name": "Doctor's Bag",
+            "count": 3,
+            "hotkey": "E",
+            "category": "Aid",
+            "weight": 2.0,
+            "value": 100,
+            "description": "Heals crippled limbs."
+        },
+        {
+            "name": "10mm Pistol",
+            "count": 1,
+            "hotkey": "-",
+            "category": "Weapons",
+            "weight": 3.5,
+            "value": 250,
+            "description": "Standard sidearm. Semi-automatic."
+        },
+        {
+            "name": "Vault Suit",
+            "count": 1,
+            "hotkey": "-",
+            "category": "Apparel",
+            "weight": 5.0,
+            "value": 50,
+            "description": "Standard Vault-Tec jumpsuit. DR 10."
+        },
+        {
+            "name": "10mm Rounds",
+            "count": 120,
+            "hotkey": "-",
+            "category": "Ammo",
+            "weight": 0.0,
+            "value": 1,
+            "description": "Standard 10mm ammunition."
+        },
+        {
+            "name": "Nuka-Cola",
+            "count": 4,
+            "hotkey": "-",
+            "category": "Aid",
+            "weight": 1.0,
+            "value": 10,
+            "description": "Restores 10 HP. +5 Rads."
+        },
+        {
+            "name": "RadAway",
+            "count": 2,
+            "hotkey": "-",
+            "category": "Aid",
+            "weight": 1.0,
+            "value": 60,
+            "description": "Removes 100 rads over time."
+        },
+        {
+            "name": "Combat Knife",
+            "count": 1,
+            "hotkey": "-",
+            "category": "Weapons",
+            "weight": 2.0,
+            "value": 150,
+            "description": "Lightweight melee weapon. DMG 20."
+        },
+        {
+            "name": "Bobby Pin",
+            "count": 15,
+            "hotkey": "-",
+            "category": "Misc",
+            "weight": 0.0,
+            "value": 1,
+            "description": "Used for lockpicking."
+        },
+        {
+            "name": "Scrap Metal",
+            "count": 6,
+            "hotkey": "-",
+            "category": "Misc",
+            "weight": 2.0,
+            "value": 3,
+            "description": "Useful junk for crafting."
+        }
+    ],
+    "quests": [
+        {
+            "name": "They Went That-A-Way",
+            "status": "Active",
+            "description": "Track down Benny, the man who shot you in the head and left you for dead near Goodsprings. Follow his trail through the Mojave.",
+            "objectives": [
+                {
+                    "text": "Ask around Primm about the man who shot you",
+                    "done": true
+                },
+                {
+                    "text": "Find out where Benny went from Nipton",
+                    "done": true
+                },
+                {
+                    "text": "Ask around Novac about the Chairmen",
+                    "done": true
+                },
+                {
+                    "text": "Find Benny in Boulder City",
+                    "done": false
+                },
+                {
+                    "text": "Follow Benny to The Tops casino in New Vegas",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "Ring-a-Ding-Ding!",
+            "status": "Active",
+            "description": "Benny has been tracked to The Tops casino on the New Vegas Strip. Confront him and recover the platinum chip he stole.",
+            "objectives": [
+                {
+                    "text": "Gain access to the New Vegas Strip",
+                    "done": true
+                },
+                {
+                    "text": "Enter The Tops casino",
+                    "done": false
+                },
+                {
+                    "text": "Confront Benny",
+                    "done": false
+                },
+                {
+                    "text": "Recover the platinum chip",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "Come Fly With Me",
+            "status": "Active",
+            "description": "The residents of Novac need help with ghouls at the REPCONN Test Site. Something strange is happening inside the old rocket facility.",
+            "objectives": [
+                {
+                    "text": "Investigate the REPCONN Test Site",
+                    "done": true
+                },
+                {
+                    "text": "Find out what the ghouls want",
+                    "done": true
+                },
+                {
+                    "text": "Retrieve the necessary rocket parts",
+                    "done": false
+                },
+                {
+                    "text": "Help or sabotage the ghoul launch",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "Sierra Madre Grand Opening!",
+            "status": "Active",
+            "description": "A pre-war radio broadcast is advertising the grand opening of the Sierra Madre Casino. The transmission seems to be an automated invitation — but where is it coming from?",
+            "objectives": [
+                {
+                    "text": "Track down the source of the Sierra Madre broadcast",
+                    "done": true
+                },
+                {
+                    "text": "Locate the abandoned Brotherhood of Steel bunker",
+                    "done": false
+                },
+                {
+                    "text": "Investigate Father Elijah's holotape",
+                    "done": false
+                }
+            ]
+        },
+        {
+            "name": "Happy Trails Expedition",
+            "status": "Active",
+            "description": "The Happy Trails Caravan Company is mounting an expedition to re-establish contact with the New Canaanites in Zion Canyon. Jed Masterson is leading the group north.",
+            "objectives": [
+                {
+                    "text": "Meet Jed Masterson at the Northern Passage",
+                    "done": true
+                },
+                {
+                    "text": "Travel light — 75 lbs carry weight or less",
+                    "done": false
+                },
+                {
+                    "text": "Accompany the caravan into Zion Canyon",
+                    "done": false
+                }
+            ]
+        }
+    ],
+    "map": {
+        "player_pos": [
+            0.45,
+            0.52
+        ]
+    },
+    "radio": {
+        "active_station": 0,
+        "stations": [
+            {
+                "name": "Radio New Vegas",
+                "frequency": "RNV",
+                "signal": 0.90,
+                "dj": "Mr. New Vegas",
+                "status": "ON AIR",
+                "description": "The voice of the Mojave. News from across the wasteland and 1940s-60s Las Vegas music. Hosted by the charming Mr. New Vegas."
+            },
+            {
+                "name": "Mojave Music Radio",
+                "frequency": "MMR 98.6",
+                "signal": 0.95,
+                "dj": "None",
+                "status": "ON AIR",
+                "description": "Pre-war country and western music with full Mojave coverage. No host, just the music. Same playlist as Black Mountain Radio."
+            },
+            {
+                "name": "Black Mountain Radio",
+                "frequency": "BMR 105.7",
+                "signal": 0.60,
+                "dj": "Tabitha & Rhonda",
+                "status": "ON AIR",
+                "description": "Super mutant propaganda from the State of Utobitha. Best Friend Tabitha interviews herself as her broken Mister Handy, Rhonda."
+            },
+            {
+                "name": "Mysterious Broadcast",
+                "frequency": "BIG MT 101.0",
+                "signal": 0.45,
+                "dj": "Unknown",
+                "status": "NO SIGNAL",
+                "description": "A strange repeating broadcast originating from the Big MT research facility, leaking remnants of pre-war experiments."
+            },
+            {
+                "name": "Sierra Madre Broadcast",
+                "frequency": "SM 99.9",
+                "signal": 0.55,
+                "dj": "Automated Host",
+                "status": "ON AIR",
+                "description": "An automated pre-war broadcast advertising the grand opening of the Sierra Madre casino. Still transmitting 200 years after the bombs fell."
+            },
+            {
+                "name": "Happy Trails Expedition",
+                "frequency": "HT 88.3",
+                "signal": 0.30,
+                "dj": "Jed Masterson",
+                "status": "DISTRESS",
+                "description": "Distress signal from the Happy Trails Caravan Company expedition. The broadcast calls for help somewhere in Zion Canyon."
+            }
+        ]
+    },
+    "themes": [
+        {
+            "name": "Pip-Boy Green",
+            "main": [
+                51,
+                255,
+                51
+            ],
+            "dark": [
+                20,
+                100,
+                20
+            ],
+            "bright": [
+                102,
+                255,
+                102
+            ],
+            "dim": [
+                30,
+                180,
+                30
+            ],
+            "background": [
+                10,
+                20,
+                10
+            ],
+            "scanline": [
+                0,
+                0,
+                0,
+                30
+            ],
+            "quest_completed": [
+                80,
+                200,
+                80
+            ],
+            "quest_failed": [
+                200,
+                80,
+                80
+            ],
+            "radio_offline": [
+                120,
+                120,
+                120
+            ],
+            "radio_distress": [
+                255,
+                200,
+                50
+            ],
+            "row_alt_bg": [
+                15,
+                40,
+                15
+            ],
+            "row_inactive_bg": [
+                10,
+                30,
+                10
+            ],
+            "card_active_bg": [
+                12,
+                35,
+                12
+            ],
+            "card_bg": [
+                8,
+                20,
+                8
+            ]
+        },
+        {
+            "name": "Amber",
+            "main": [
+                255,
+                176,
+                0
+            ],
+            "dark": [
+                120,
+                80,
+                0
+            ],
+            "bright": [
+                255,
+                210,
+                80
+            ],
+            "dim": [
+                180,
+                120,
+                0
+            ],
+            "background": [
+                20,
+                12,
+                0
+            ],
+            "scanline": [
+                0,
+                0,
+                0,
+                30
+            ],
+            "quest_completed": [
+                200,
+                160,
+                60
+            ],
+            "quest_failed": [
+                200,
+                80,
+                80
+            ],
+            "radio_offline": [
+                100,
+                80,
+                40
+            ],
+            "radio_distress": [
+                255,
+                200,
+                50
+            ],
+            "row_alt_bg": [
+                40,
+                25,
+                0
+            ],
+            "row_inactive_bg": [
+                25,
+                15,
+                0
+            ],
+            "card_active_bg": [
+                35,
+                22,
+                0
+            ],
+            "card_bg": [
+                22,
+                14,
+                0
+            ]
+        }
+    ]
+}

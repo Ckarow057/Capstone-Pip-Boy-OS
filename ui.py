@@ -25,8 +25,9 @@ class UIContext:
 
 def create_ui_context():
     pygame.init()
-    screen = pygame.display.set_mode(WINDOW_SIZE)
+    screen = pygame.display.set_mode(WINDOW_SIZE, pygame.FULLSCREEN | pygame.SCALED)
     pygame.display.set_caption(WINDOW_TITLE)
+    pygame.mouse.set_visible(False)
 
     try:
         fonts = UIFonts(

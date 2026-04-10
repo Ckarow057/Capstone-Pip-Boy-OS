@@ -1,45 +1,45 @@
-def get_player_stats_data():
-    return {
-        "name": "VAULT DWELLER",
-        "level": 1,
-        "hp": 200,
-        "max_hp": 200,
-        "ap": 80,
-        "max_ap": 80,
-        "rads": 12,
-        "xp": 10,
-        "next_level": 200,
-        "caps": 542,
-        "condition": 85,
-        "effects": 0
-    }
+import json
+import os
+
+_DATA_PATH = os.path.join(os.path.dirname(__file__), "pip_boy_data.json")
+_cache: dict | None = None
 
 
-def get_inventory_data():
-    return [
-        {"name": "Stimpak", "count": 5, "hotkey": "S"},
-        {"name": "Doctor's Bag", "count": 3, "hotkey": "E"}
-    ]
+def _load() -> dict:
+    global _cache
+    if _cache is None:
+        with open(_DATA_PATH, encoding="utf-8") as f:
+            _cache = json.load(f)
+    return _cache
 
 
-def get_special_stats_data():
-    return {
-        "S": 7,
-        "P": 6,
-        "E": 5,
-        "C": 4,
-        "I": 8,
-        "A": 6,
-        "L": 5
-    }
+def get_player_stats_data() -> dict:
+    return _load()["player_stats"]
 
 
-def get_body_parts_data():
-    return {
-        "head": 100,
-        "torso": 85,
-        "left_arm": 90,
-        "right_arm": 100,
-        "left_leg": 75,
-        "right_leg": 80
-    }
+def get_inventory_data() -> list:
+    return _load()["inventory"]
+
+
+def get_special_stats_data() -> dict:
+    return _load()["special"]
+
+
+def get_body_parts_data() -> dict:
+    return _load()["body_parts"]
+
+
+def get_quests_data() -> list:
+    return _load()["quests"]
+
+
+def get_map_data() -> dict:
+    return _load()["map"]
+
+
+def get_radio_data() -> dict:
+    return _load()["radio"]
+
+
+def get_themes_data() -> list:
+    return _load()["themes"]
