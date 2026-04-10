@@ -1,28 +1,3 @@
-PIP_GREEN        = (51, 255, 51)
-PIP_GREEN_DARK   = (20, 100, 20)
-PIP_GREEN_BRIGHT = (102, 255, 102)
-PIP_GREEN_DIM    = (30, 180, 30)
-BACKGROUND       = (10, 20, 10)
-SCANLINE_COLOR   = (0, 0, 0, 30)
-
-QUEST_STATUS_COLORS = {
-    "Active":    (51, 255, 51),
-    "Completed": (80, 200, 80),
-    "Failed":    (200, 80, 80),
-}
-
-RADIO_STATUS_COLORS = {
-    "ON AIR":   (102, 255, 102),
-    "OFFLINE":  (120, 120, 120),
-    "DISTRESS": (255, 200, 50),
-}
-
-ROW_ALT_BG      = (15, 40, 15)
-ROW_INACTIVE_BG = (10, 30, 10)
-CARD_ACTIVE_BG  = (12, 35, 12)
-CARD_BG         = (8, 20, 8)
-
-
 def apply_theme(palette: dict) -> None:
     global PIP_GREEN, PIP_GREEN_DARK, PIP_GREEN_BRIGHT, PIP_GREEN_DIM
     global BACKGROUND, SCANLINE_COLOR
