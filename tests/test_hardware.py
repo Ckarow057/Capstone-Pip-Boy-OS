@@ -29,6 +29,7 @@ sys.modules.setdefault("RPi.GPIO", _gpio_stub)
 
 _pygame_event_stub = types.ModuleType("pygame.event")
 _pygame_event_stub.post = MagicMock()
+_pygame_event_stub.get = MagicMock(return_value=[])
 _pygame_event_stub.Event = MagicMock(side_effect=lambda t, **kw: {"type": t, **kw})
 
 _pygame_stub = types.ModuleType("pygame")
@@ -91,21 +92,42 @@ class TestEncoderCallbacks(unittest.TestCase):
     def setUp(self):
         _pygame_event_stub.post.reset_mock()
         _gpio_stub.input.reset_mock()
+        hardware._enc_state = hardware._START
 
-    def test_clk_dt_high_posts_scroll_down(self):
-        _gpio_stub.input.return_value = _gpio_stub.HIGH
-        hardware._enc_clk_cb(channel=13)
+    def _set_encoder_levels(self, clk_level, dt_level):
+        from config import GPIO_ENC_CLK_PIN, GPIO_ENC_DT_PIN
+
+        def _input_side_effect(pin):
+            if pin == GPIO_ENC_CLK_PIN:
+                return clk_level
+            if pin == GPIO_ENC_DT_PIN:
+                return dt_level
+            return _gpio_stub.HIGH
+
+        _gpio_stub.input.side_effect = _input_side_effect
+
+    def test_quadrature_cw_sequence_posts_scroll_down(self):
+        # CW detent: 11 -> 01 -> 00 -> 10 -> 11
+        for clk, dt in [(1, 1), (0, 1), (0, 0), (1, 0), (1, 1)]:
+            self._set_encoder_levels(clk, dt)
+            hardware._enc_clk_cb(channel=13)
+
         self.assertEqual(_last_posted_action(), "scroll_down")
 
-    def test_clk_dt_low_posts_scroll_up(self):
-        _gpio_stub.input.return_value = _gpio_stub.LOW
-        hardware._enc_clk_cb(channel=13)
+    def test_quadrature_ccw_sequence_posts_scroll_up(self):
+        # CCW detent: 11 -> 10 -> 00 -> 01 -> 11
+        for clk, dt in [(1, 1), (1, 0), (0, 0), (0, 1), (1, 1)]:
+            self._set_encoder_levels(clk, dt)
+            hardware._enc_clk_cb(channel=13)
+
         self.assertEqual(_last_posted_action(), "scroll_up")
 
-    def test_clk_reads_dt_pin(self):
-        from config import GPIO_ENC_DT_PIN
-        hardware._enc_clk_cb(channel=13)
-        _gpio_stub.input.assert_called_with(GPIO_ENC_DT_PIN)
+    def test_partial_sequence_posts_nothing(self):
+        for clk, dt in [(1, 1), (0, 1), (0, 0)]:
+            self._set_encoder_levels(clk, dt)
+            hardware._enc_clk_cb(channel=13)
+
+        _pygame_event_stub.post.assert_not_called()
 
     def test_encoder_sw_posts_theme(self):
         hardware._enc_sw_cb(channel=26)
@@ -135,9 +157,9 @@ class TestSetup(unittest.TestCase):
         }
         self.assertEqual(configured_pins, expected_pins)
 
-    def test_setup_registers_five_event_detects(self):
+    def test_setup_registers_six_event_detects(self):
         hardware.setup()
-        self.assertEqual(_gpio_stub.add_event_detect.call_count, 5)
+        self.assertEqual(_gpio_stub.add_event_detect.call_count, 6)
 
     def test_setup_skips_when_gpio_unavailable(self):
         original = hardware._GPIO_AVAILABLE
